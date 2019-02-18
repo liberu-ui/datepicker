@@ -1,5 +1,5 @@
 import { Romanian } from 'flatpickr/dist/l10n/ro';
-import { English } from 'flatpickr/dist/l10n/default';
+import { english } from 'flatpickr/dist/l10n/default';
 import { German } from 'flatpickr/dist/l10n/de';
 import { Dutch } from 'flatpickr/dist/l10n/nl';
 import { French } from 'flatpickr/dist/l10n/fr';
@@ -10,7 +10,7 @@ import { Hungarian } from 'flatpickr/dist/l10n/hu';
 
 export default {
     ro: Romanian,
-    en: English,
+    en: english,
     de: German,
     nl: Dutch,
     fr: French,

@@ -17,6 +17,7 @@
                         v-else/>
                 </span>
                 <span class="icon is-small is-right clear-button"
+                    :class="{ 'is-spaced': isWarning || isDanger }"
                     @click="clear"
                     v-if="clearButton">
                     <a class="delete is-small"/>
@@ -36,7 +37,7 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import RenderlessDatepicker from '../renderless/DatePicker.vue';
+import RenderlessDatepicker from '../renderless/Datepicker.vue';
 
 library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
@@ -64,10 +65,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 
-    .control.has-icons-right .icon.clear-button {
+    .control.has-icons-right .clear-button {
         pointer-events: all;
+
+        &.is-spaced {
+            margin-right: 1.2em;
+        }
     }
 
 </style>
