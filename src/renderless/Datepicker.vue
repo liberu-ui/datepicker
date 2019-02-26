@@ -109,7 +109,7 @@ export default {
     methods: {
         init() {
             this.picker = new Flatpickr(
-                this.$el.querySelector('input'), this.config
+                this.$el.querySelector('input'), this.config,
             );
         },
         clear() {
@@ -130,9 +130,7 @@ export default {
             clearButton: this.clearButton,
             clear: this.clear,
         });
-    }
+    },
 };
 
 </script>
-
-
