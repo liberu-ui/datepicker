@@ -1,5 +1,4 @@
 <script>
-
 import Flatpickr from 'flatpickr';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
@@ -132,5 +131,4 @@ export default {
         });
     },
 };
-
 </script>
