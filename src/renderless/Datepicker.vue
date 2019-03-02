@@ -8,6 +8,10 @@ library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
 export default {
     props: {
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
         format: {
             type: String,
             default: 'd-m-Y',
@@ -24,6 +28,10 @@ export default {
         min: {
             type: String,
             default: null,
+        },
+        readonly: {
+            type: Boolean,
+            default: false,
         },
         time: {
             type: Boolean,
@@ -54,7 +62,7 @@ export default {
 
     computed: {
         clearButton() {
-            return this.value && !this.disabled;
+            return this.value && !this.disabled && !this.readonly;
         },
         config() {
             const self = this;
@@ -127,7 +135,12 @@ export default {
         return this.$scopedSlots.default({
             timeOnly: this.timeOnly,
             clearButton: this.clearButton,
-            clear: this.clear,
+            inputBindings: {
+                disabled: this.readonly || this.disabled,
+            },
+            clearEvents: {
+                click: this.clear,
+            },
         });
     },
 };

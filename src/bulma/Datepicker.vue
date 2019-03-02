@@ -1,15 +1,13 @@
 <template>
-    <renderless-datepicker v-bind="$attrs"
+    <core-datepicker v-bind="$attrs"
         v-on="$listeners">
-        <template v-slot:default="{ timeOnly, clearButton, clear }">
+        <template v-slot:default="{ timeOnly, clearButton, clearEvents, inputBindings }">
             <div class="control has-icons-left has-icons-right">
-                <input :class="[
-                        'input',
-                        { 'is-danger': isDanger },
-                        { 'is-warning': isWarning }
-                    ]" type="text"
+                <input class="input"
+                    :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }]"
+                    type="text"
                     :placeholder="placeholder"
-                    :disabled="disabled">
+                    v-bind="inputBindings">
                 <span class="icon is-small is-left">
                     <fa icon="clock"
                         v-if="timeOnly"/>
@@ -18,40 +16,36 @@
                 </span>
                 <span class="icon is-small is-right clear-button"
                     :class="{ 'is-spaced': isWarning || isDanger }"
-                    @click="clear"
+                    v-on="clearEvents"
                     v-if="clearButton">
                     <a class="delete is-small"/>
                 </span>
-                <span :class="[
-                        'icon is-small is-right',
-                        { 'has-text-danger': isDanger },
-                        { 'has-text-warning': isWarning }
-                    ]" v-if="isDanger || isWarning">
+                <span class="icon is-small is-right"
+                    :class="[{ 'has-text-danger': isDanger }, { 'has-text-warning': isWarning }]"
+                    v-if="isDanger || isWarning">
                     <fa icon="exclamation-triangle"/>
                 </span>
             </div>
         </template>
-    </renderless-datepicker>
+    </core-datepicker>
 </template>
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import RenderlessDatepicker from '../renderless/Datepicker.vue';
+import CoreDatepicker from '../renderless/Datepicker.vue';
 
 library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
 export default {
-    components: { RenderlessDatepicker },
+    name: 'Datepicker',
+
+    components: { CoreDatepicker },
 
     props: {
         placeholder: {
             type: String,
             default: 'Select Date',
-        },
-        disabled: {
-            type: Boolean,
-            default: false,
         },
         isDanger: {
             type: Boolean,
@@ -66,7 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-
     .control.has-icons-right .clear-button {
         pointer-events: all;
 
@@ -74,5 +67,4 @@ export default {
             margin-right: 1.2em;
         }
     }
-
 </style>
