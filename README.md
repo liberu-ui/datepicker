@@ -6,7 +6,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/datepicker.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/datepicker.svg) 
 
-Vue Datepicker component based on Flatpickr
+Vue Datepicker component based on [Flatpickr](https://flatpickr.js.org/)
 
 ## Usage
 All components can be used outside of the Enso ecosystem.
@@ -15,7 +15,7 @@ All components can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).### Installation
+Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).
 
 ### Installation
 
