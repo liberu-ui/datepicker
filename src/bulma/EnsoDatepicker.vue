@@ -10,7 +10,7 @@ import { mapState, mapGetters } from 'vuex';
 import Datepicker from './Datepicker.vue';
 
 export default {
-    name: 'Datepicker',
+    name: 'EnsoDatepicker',
 
     components: { Datepicker },
 

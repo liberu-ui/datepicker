@@ -35,7 +35,7 @@ import { Datepicker } from '@enso-ui/datepicker/bulma';
 - `EnsoDatepicker`,
 
 `@enso-ui/datepicker/renderless`:
-- `Datepicker`,
+- `CoreDatepicker`,
 
 ## Contributions
 

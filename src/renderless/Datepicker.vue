@@ -7,6 +7,8 @@ import i18n from '../locale/locale';
 library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
 export default {
+    name: 'CoreDatepicker',
+
     props: {
         disabled: {
             type: Boolean,
