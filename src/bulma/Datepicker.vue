@@ -33,7 +33,7 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
-import CoreDatepicker from '../renderless/Datepicker.vue';
+import CoreDatepicker from '../renderless/CoreDatepicker.vue';
 
 library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
