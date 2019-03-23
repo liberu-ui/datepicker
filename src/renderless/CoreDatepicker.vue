@@ -10,6 +10,10 @@ export default {
     name: 'CoreDatepicker',
 
     props: {
+        time12hr: {
+            type: Boolean,
+            default: false,
+        },
         disabled: {
             type: Boolean,
             default: false,
@@ -79,6 +83,7 @@ export default {
                 maxDate: this.max,
                 noCalendar: this.timeOnly,
                 enableTime: this.time || this.timeOnly,
+                time_24hr: !this.time12hr,
                 onChange(selectedDates, dateStr) {
                     self.$emit('input', dateStr);
                 },
