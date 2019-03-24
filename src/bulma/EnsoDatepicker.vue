@@ -1,6 +1,6 @@
 <template>
     <datepicker :locale="lang"
-        :format="format || meta.jsDateFormat"
+        :format="format || meta.dateFormat"
         v-bind="$attrs"
         v-on="$listeners"/>
 </template>
