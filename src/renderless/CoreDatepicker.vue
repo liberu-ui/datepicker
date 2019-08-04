@@ -84,6 +84,7 @@ export default {
                 noCalendar: this.timeOnly,
                 enableTime: this.time || this.timeOnly,
                 time_24hr: !this.time12hr,
+                clickOpens: !this.readonly,
                 onChange(selectedDates, dateStr) {
                     self.$emit('input', dateStr);
                 },
@@ -143,7 +144,8 @@ export default {
             timeOnly: this.timeOnly,
             clearButton: this.clearButton,
             inputBindings: {
-                disabled: this.readonly || this.disabled,
+                disabled: this.disabled,
+                readonly: this.readonly,
             },
             clearEvents: {
                 click: this.clear,
