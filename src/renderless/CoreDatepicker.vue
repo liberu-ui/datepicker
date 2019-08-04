@@ -78,7 +78,6 @@ export default {
                 defaultDate: this.value,
                 dateFormat: this.format,
                 allowInput: false,
-                clickOpens: true,
                 minDate: this.min,
                 maxDate: this.max,
                 noCalendar: this.timeOnly,
@@ -143,6 +142,7 @@ export default {
         return this.$scopedSlots.default({
             timeOnly: this.timeOnly,
             clearButton: this.clearButton,
+            readonly: this.readonly || this.disabled,
             inputBindings: {
                 disabled: this.disabled,
                 readonly: this.readonly,
