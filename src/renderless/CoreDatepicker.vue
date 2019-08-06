@@ -92,8 +92,8 @@ export default {
     },
 
     watch: {
-        value(newValue) {
-            this.picker.setDate(newValue);
+        value(value) {
+            this.picker.setDate(value);
         },
         locale(locale) {
             this.destroy();
@@ -105,6 +105,10 @@ export default {
         },
         max() {
             this.reset();
+        },
+        readonly(readonly) {
+            this.destroy();
+            this.init();
         },
     },
 
