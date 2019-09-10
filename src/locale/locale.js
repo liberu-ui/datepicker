@@ -8,6 +8,7 @@ import { Arabic } from 'flatpickr/dist/l10n/ar';
 import { Mongolian } from 'flatpickr/dist/l10n/mn';
 import { Hungarian } from 'flatpickr/dist/l10n/hu';
 import { Ukrainian } from 'flatpickr/dist/l10n/uk';
+import { Spanish } from 'flatpickr/dist/l10n/es';
 
 export default {
     ro: Romanian,
@@ -20,4 +21,5 @@ export default {
     mn: Mongolian,
     hu: Hungarian,
     uk: Ukrainian,
+    es: Spanish,
 };
