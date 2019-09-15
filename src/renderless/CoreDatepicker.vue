@@ -1,10 +1,7 @@
 <script>
 import Flatpickr from 'flatpickr';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import i18n from '../locale/locale';
 
-library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
 export default {
     name: 'CoreDatepicker',

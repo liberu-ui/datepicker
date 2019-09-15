@@ -28,10 +28,10 @@
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faClock, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import CoreDatepicker from '../renderless/CoreDatepicker.vue';
 
-library.add(faClock, faCalendarAlt);
+library.add(faClock, faCalendarAlt, faExclamationTriangle);
 
 export default {
     name: 'Datepicker',
