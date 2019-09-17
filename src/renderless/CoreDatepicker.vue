@@ -15,6 +15,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        disableClear: {
+            type: Boolean,
+            default: false,
+        },
         format: {
             type: String,
             default: 'd-m-Y',
@@ -65,7 +69,10 @@ export default {
 
     computed: {
         clearButton() {
-            return this.value && !this.disabled && !this.readonly;
+            return this.value
+                && !this.disableClear
+                && !this.disabled
+                && !this.readonly;
         },
         config() {
             const self = this;
