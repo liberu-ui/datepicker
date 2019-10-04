@@ -7,9 +7,13 @@ export default {
     name: 'CoreDatepicker',
 
     props: {
-        time12hr: {
+        altInput: {
             type: Boolean,
             default: false,
+        },
+        altFormat: {
+            type: String,
+            default: null,
         },
         disabled: {
             type: Boolean,
@@ -41,6 +45,10 @@ export default {
             default: false,
         },
         time: {
+            type: Boolean,
+            default: false,
+        },
+        time12hr: {
             type: Boolean,
             default: false,
         },
@@ -78,16 +86,18 @@ export default {
             const self = this;
 
             return {
-                weekNumbers: this.weekNumbers,
-                defaultDate: this.value,
-                dateFormat: this.format,
                 allowInput: false,
-                minDate: this.min,
-                maxDate: this.max,
-                noCalendar: this.timeOnly,
-                enableTime: this.time || this.timeOnly,
-                time_24hr: !this.time12hr,
+                altFormat: this.altFormat,
+                altInput: this.altInput,
                 clickOpens: !this.readonly,
+                dateFormat: this.format.replace('s', 'S'),
+                defaultDate: this.value,
+                enableTime: this.time || this.timeOnly,
+                maxDate: this.max,
+                minDate: this.min,
+                noCalendar: this.timeOnly,
+                time_24hr: !this.time12hr,
+                weekNumbers: this.weekNumbers,
                 onChange(selectedDates, dateStr) {
                     self.$emit('input', dateStr);
                 },
@@ -110,7 +120,7 @@ export default {
         max() {
             this.reset();
         },
-        readonly(readonly) {
+        readonly() {
             this.destroy();
             this.init();
         },
