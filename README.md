@@ -15,27 +15,9 @@ All components can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).
+### Installation, Configuration & Usage
 
-### Installation
-
-Install the package:
-```
-npm i @enso-ui/datepicker
-```
-Import the desired component(s):
-```js
-import { Datepicker } from '@enso-ui/datepicker/bulma';
-```
-
-## Exports
-
-`@enso-ui/datepicker/bulma`:
-- `Datepicker`,
-- `EnsoDatepicker`,
-
-`@enso-ui/datepicker/renderless`:
-- `CoreDatepicker`,
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/datepicker.html)
 
 ## Contributions
 
