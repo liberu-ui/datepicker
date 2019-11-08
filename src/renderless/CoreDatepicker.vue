@@ -25,7 +25,7 @@ export default {
         },
         format: {
             type: String,
-            default: 'd-m-Y',
+            default: 'Y-m-d',
         },
         locale: {
             type: String,
