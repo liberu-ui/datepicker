@@ -1,6 +1,7 @@
 <template>
     <datepicker :locale="lang"
-        :format="format || meta.dateFormat"
+        :alt-input="!!altFormat"
+        :alt-format="altFormat || meta.dateFormat"
         v-bind="$attrs"
         v-on="$listeners"/>
 </template>
@@ -15,7 +16,7 @@ export default {
     components: { Datepicker },
 
     props: {
-        format: {
+        altFormat: {
             type: String,
             default: null,
         },
