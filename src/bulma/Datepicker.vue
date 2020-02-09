@@ -5,7 +5,7 @@
             <div class="control"
                 :class="{'has-icons-left has-icons-right': !readonly}">
                 <input class="input"
-                    :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }]"
+                    :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }, { 'is-small': isSmall }]"
                     type="text"
                     :placeholder="placeholder"
                     v-bind="inputBindings">
@@ -39,17 +39,21 @@ export default {
     components: { CoreDatepicker },
 
     props: {
-        placeholder: {
-            type: String,
-            default: 'Select Date',
-        },
         isDanger: {
+            type: Boolean,
+            default: false,
+        },
+        isSmall: {
             type: Boolean,
             default: false,
         },
         isWarning: {
             type: Boolean,
             default: false,
+        },
+        placeholder: {
+            type: String,
+            default: 'Select Date',
         },
     },
 };
