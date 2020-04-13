@@ -2,7 +2,6 @@
 import Flatpickr from 'flatpickr';
 import i18n from '../locale/locale';
 
-
 export default {
     name: 'CoreDatepicker',
 
@@ -30,7 +29,7 @@ export default {
         locale: {
             type: String,
             default: 'en',
-            validator: val => Object.keys(i18n).includes(val),
+            validator: (val) => Object.keys(i18n).includes(val),
         },
         max: {
             type: String,
@@ -106,24 +105,18 @@ export default {
     },
 
     watch: {
-        value(value) {
-            this.picker.setDate(value);
-        },
         locale(locale) {
             this.destroy();
             Flatpickr.localize(i18n[locale]);
             this.init();
         },
-        min() {
-            this.reset();
-        },
-        max() {
-            this.reset();
-        },
+        max: 'reset',
+        min: 'reset',
         readonly() {
             this.destroy();
             this.init();
         },
+        value: 'formatDate',
     },
 
     created() {
@@ -139,16 +132,23 @@ export default {
     },
 
     methods: {
-        init() {
-            this.picker = new Flatpickr(
-                this.$el.querySelector('input'), this.config,
-            );
-        },
         clear() {
             this.picker.clear();
         },
         destroy() {
             this.picker.destroy();
+        },
+        formatDate() {
+            const formatted = this.picker.formatDate(new Date(this.value), this.format);
+            this.picker.setDate(formatted);
+            this.$emit('input', formatted);
+        },
+        init() {
+            this.picker = new Flatpickr(
+                this.$el.querySelector('input'), this.config,
+            );
+
+            this.formatDate();
         },
         reset() {
             this.destroy();
@@ -158,16 +158,16 @@ export default {
 
     render() {
         return this.$scopedSlots.default({
-            timeOnly: this.timeOnly,
             clearButton: this.clearButton,
-            readonly: this.readonly || this.disabled,
+            clearEvents: {
+                click: this.clear,
+            },
             inputBindings: {
                 disabled: this.disabled,
                 readonly: this.readonly,
             },
-            clearEvents: {
-                click: this.clear,
-            },
+            readonly: this.readonly || this.disabled,
+            timeOnly: this.timeOnly,
         });
     },
 };
