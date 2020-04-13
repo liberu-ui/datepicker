@@ -116,7 +116,9 @@ export default {
             this.destroy();
             this.init();
         },
-        value: 'formatDate',
+        value(value) {
+            this.picker.setDate(value);
+        },
     },
 
     created() {
@@ -138,17 +140,10 @@ export default {
         destroy() {
             this.picker.destroy();
         },
-        formatDate() {
-            const formatted = this.picker.formatDate(new Date(this.value), this.format);
-            this.picker.setDate(formatted);
-            this.$emit('input', formatted);
-        },
         init() {
             this.picker = new Flatpickr(
                 this.$el.querySelector('input'), this.config,
             );
-
-            this.formatDate();
         },
         reset() {
             this.destroy();
