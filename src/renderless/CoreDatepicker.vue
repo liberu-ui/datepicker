@@ -112,10 +112,8 @@ export default {
         },
         max: 'reset',
         min: 'reset',
-        readonly() {
-            this.destroy();
-            this.init();
-        },
+        readonly: 'reset',
+        disabled: 'reset',
         value(value) {
             this.picker.setDate(value);
         },
@@ -147,7 +145,7 @@ export default {
         },
         reset() {
             this.destroy();
-            this.init();
+            this.$nextTick(() => this.init());
         },
     },
 
