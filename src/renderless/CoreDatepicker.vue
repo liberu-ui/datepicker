@@ -115,7 +115,11 @@ export default {
         readonly: 'reset',
         disabled: 'reset',
         value(value) {
-            this.picker.setDate(value);
+            if(value) {
+                this.picker.setDate(value);
+            } else {
+                this.$nextTick(() => this.clear());
+            }
         },
     },
 

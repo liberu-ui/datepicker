@@ -1,6 +1,7 @@
 <template>
     <core-datepicker v-bind="$attrs"
-        v-on="$listeners">
+        v-on="$listeners"
+        ref="coreDatepicker">
         <template v-slot:default="{ timeOnly, clearButton, clearEvents, inputBindings, readonly }">
             <div class="control"
                 :class="{'has-icons-left has-icons-right': !readonly}">
@@ -56,6 +57,12 @@ export default {
             default: 'Select Date',
         },
     },
+
+    methods: {
+        clear() {
+            this.$refs.coreDatepicker.clear();
+        }
+    }
 };
 </script>
 
