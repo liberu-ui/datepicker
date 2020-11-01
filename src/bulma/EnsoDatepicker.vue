@@ -1,7 +1,8 @@
 <template>
     <datepicker :locale="lang"
         alt-input
-        :alt-format="altFormat || meta.dateFormat"
+        :alt-format="format"
+        :time="time"
         v-bind="$attrs"
         v-on="$listeners"/>
 </template>
@@ -20,11 +21,19 @@ export default {
             type: String,
             default: null,
         },
+        time: {
+            type: Boolean,
+            default: false,
+        },
     },
 
     computed: {
         ...mapState(['meta']),
         ...mapGetters('preferences', ['lang']),
+        format() {
+            return this.altFormat
+                ?? (this.time ? this.meta.dateTimeFormat : this.meta.dateFormat);
+        },
     },
 };
 </script>
