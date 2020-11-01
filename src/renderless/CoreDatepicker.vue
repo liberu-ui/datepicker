@@ -100,6 +100,9 @@ export default {
                 onChange(selectedDates, dateStr) {
                     self.$emit('input', dateStr);
                 },
+                onValueUpdate(selectedDates, dateStr) {
+                    self.$emit('value-updated', dateStr);
+                },
             };
         },
     },
@@ -115,7 +118,7 @@ export default {
         readonly: 'reset',
         disabled: 'reset',
         value(value) {
-            if(value) {
+            if (value) {
                 this.picker.setDate(value);
             } else {
                 this.$nextTick(() => this.clear());
