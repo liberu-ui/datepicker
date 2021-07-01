@@ -1,9 +1,9 @@
 <template>
-    <datepicker :locale="lang"
+    <datepicker v-bind="$attrs"
+        :locale="lang"
         alt-input
         :alt-format="format"
         :time="time"
-        v-bind="$attrs"
         v-on="$listeners"/>
 </template>
 
