@@ -7,9 +7,9 @@
                 :class="{'has-icons-left has-icons-right': !readonly}">
                 <input class="input"
                     :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }, { 'is-small': isSmall }]"
+                    v-bind="inputBindings"
                     type="text"
-                    :placeholder="placeholder"
-                    v-bind="inputBindings">
+                    :placeholder="placeholder">
                 <span class="icon is-small is-left"
                     v-if="!readonly">
                     <fa icon="clock"
@@ -61,8 +61,8 @@ export default {
     methods: {
         clear() {
             this.$refs.coreDatepicker.clear();
-        }
-    }
+        },
+    },
 };
 </script>
 
