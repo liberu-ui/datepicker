@@ -118,6 +118,10 @@ export default {
         readonly: 'reset',
         disabled: 'reset',
         value(value) {
+            if (!this.picker.config) {
+                return;
+            }
+            
             if (value) {
                 this.picker.setDate(value);
             } else {
