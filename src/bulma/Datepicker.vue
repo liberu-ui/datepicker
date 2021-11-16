@@ -1,8 +1,7 @@
 <template>
-    <core-datepicker v-bind="$attrs"
-        v-on="$listeners"
+    <core-datepicker v-bind="$attrs"   
         ref="coreDatepicker">
-        <template #:default="{ timeOnly, clearButton, clearEvents, inputBindings, readonly }">
+        <template #default="{ timeOnly, clearButton, clearEvents, inputBindings, readonly }">
             <div class="control"
                 :class="{'has-icons-left has-icons-right': !readonly}">
                 <input class="input"

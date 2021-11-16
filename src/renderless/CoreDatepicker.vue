@@ -161,7 +161,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             clearButton: this.clearButton,
             clearEvents: {
                 click: this.clear,

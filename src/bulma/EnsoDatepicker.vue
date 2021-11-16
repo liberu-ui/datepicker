@@ -3,8 +3,7 @@
         :locale="lang"
         alt-input
         :alt-format="format"
-        :time="time"
-        v-on="$listeners"/>
+        :time="time"/>
 </template>
 
 <script>
