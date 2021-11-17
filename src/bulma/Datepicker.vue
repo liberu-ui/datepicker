@@ -1,5 +1,5 @@
 <template>
-    <core-datepicker v-bind="$attrs"   
+    <core-datepicker v-bind="$attrs"
         ref="coreDatepicker">
         <template #default="{ timeOnly, clearButton, clearEvents, inputBindings, readonly }">
             <div class="control"
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faClock, faCalendarAlt, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import CoreDatepicker from '../renderless/CoreDatepicker.vue';
@@ -36,7 +37,7 @@ library.add(faClock, faCalendarAlt, faExclamationTriangle);
 export default {
     name: 'Datepicker',
 
-    components: { CoreDatepicker },
+    components: { Fa, CoreDatepicker },
 
     props: {
         isDanger: {
