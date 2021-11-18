@@ -55,7 +55,7 @@ export default {
             type: Boolean,
             default: false,
         },
-        value: {
+        modelValue: {
             type: null,
             required: true,
             default: null,
@@ -70,13 +70,15 @@ export default {
         },
     },
 
+    emits: ['value-updated', 'update:modelValue'],
+
     data: () => ({
         picker: null,
     }),
 
     computed: {
         clearButton() {
-            return this.value
+            return this.modelValue
                 && !this.disableClear
                 && !this.disabled
                 && !this.readonly;
@@ -90,7 +92,7 @@ export default {
                 altInput: this.altInput,
                 clickOpens: !this.readonly,
                 dateFormat: this.format.replace('s', 'S'),
-                defaultDate: this.value,
+                defaultDate: this.modelValue,
                 enableTime: this.time || this.timeOnly,
                 maxDate: this.max,
                 minDate: this.min,
@@ -98,7 +100,7 @@ export default {
                 time_24hr: !this.time12hr,
                 weekNumbers: this.weekNumbers,
                 onChange(selectedDates, dateStr) {
-                    self.$emit('input', dateStr);
+                    self.$emit('update:modelValue', dateStr);
                 },
                 onValueUpdate(selectedDates, dateStr) {
                     self.$emit('value-updated', dateStr);
@@ -117,11 +119,11 @@ export default {
         min: 'reset',
         readonly: 'reset',
         disabled: 'reset',
-        value(value) {
+        modelValue(value) {
             if (!this.picker.config) {
                 return;
             }
-            
+
             if (value) {
                 this.picker.setDate(value);
             } else {
