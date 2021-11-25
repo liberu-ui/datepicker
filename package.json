@@ -29,7 +29,6 @@
     "@fortawesome/vue-fontawesome": "3.0.0-5",
     "bulma": "^0.9.0",
     "flatpickr": "^4.5.0",
-    "v-tooltip": "4.0.0-alpha.1",
     "vue": "^3.0",
     "vuex": "^4.0.0"
   },
