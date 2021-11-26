@@ -140,7 +140,7 @@ export default {
         this.init();
     },
 
-    beforeDestroy() {
+    beforeUnmount() {
         this.destroy();
     },
 
