@@ -153,7 +153,7 @@ export default {
         },
         init() {
             this.picker = new Flatpickr(
-                this.$el.querySelector('input'), this.config,
+                this.$parent.$el.querySelector('input'), this.config,
             );
         },
         reset() {
@@ -169,8 +169,8 @@ export default {
                 click: this.clear,
             },
             inputBindings: {
-                disabled: this.disabled,
-                readonly: this.readonly,
+                disabled: this.disabled || null,
+                readonly: this.readonly || null,
             },
             readonly: this.readonly || this.disabled,
             timeOnly: this.timeOnly,

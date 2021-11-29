@@ -1,9 +1,10 @@
 <template>
-    <core-datepicker v-bind="$attrs"
-        ref="coreDatepicker">
-        <template #default="{ timeOnly, clearButton, clearEvents, inputBindings, readonly }">
-            <div class="control"
-                :class="{'has-icons-left has-icons-right': !readonly}">
+    <div class="control"
+        :class="{ 'has-icons-left has-icons-right': !readonly }">
+        <core-datepicker v-bind="$attrs"
+            :readonly="readonly"
+            ref="coreDatepicker">
+            <template #default="{ timeOnly, clearButton, clearEvents, inputBindings}">
                 <input class="input"
                     :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }, { 'is-small': isSmall }]"
                     v-bind="inputBindings"
@@ -21,9 +22,9 @@
                     v-if="clearButton">
                     <a class="delete is-small"/>
                 </span>
-            </div>
-        </template>
-    </core-datepicker>
+            </template>
+        </core-datepicker>
+    </div>
 </template>
 
 <script>
@@ -55,6 +56,10 @@ export default {
         placeholder: {
             type: String,
             default: 'Select Date',
+        },
+        readonly: {
+            type: Boolean,
+            default: false,
         },
     },
 
