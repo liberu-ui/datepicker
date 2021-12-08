@@ -72,6 +72,8 @@ export default {
 
     emits: ['value-updated', 'update:modelValue'],
 
+    inheritAttrs: false,
+
     data: () => ({
         picker: null,
     }),
