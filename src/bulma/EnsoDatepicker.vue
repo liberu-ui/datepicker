@@ -1,5 +1,5 @@
 <template>
-    <datepicker v-bind="$attrs"
+    <datepicker
         :locale="lang"
         alt-input
         :alt-format="format"
