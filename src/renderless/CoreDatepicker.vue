@@ -5,6 +5,8 @@ import i18n from '../locale/locale';
 export default {
     name: 'CoreDatepicker',
 
+    inheritAttrs: false,
+
     props: {
         altInput: {
             type: Boolean,
@@ -29,7 +31,7 @@ export default {
         locale: {
             type: String,
             default: 'en',
-            validator: (val) => Object.keys(i18n).includes(val),
+            validator: val => Object.keys(i18n).includes(val),
         },
         max: {
             type: String,
@@ -71,8 +73,6 @@ export default {
     },
 
     emits: ['value-updated', 'update:modelValue'],
-
-    inheritAttrs: false,
 
     data: () => ({
         picker: null,

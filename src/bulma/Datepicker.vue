@@ -6,7 +6,10 @@
             ref="coreDatepicker">
             <template #default="{ timeOnly, clearButton, clearEvents, inputBindings}">
                 <input class="input"
-                    :class="[{ 'is-danger': isDanger }, { 'is-warning': isWarning }, { 'is-small': isSmall }]"
+                    :class="[
+                        { 'is-danger': isDanger },
+                        { 'is-warning': isWarning },
+                        { 'is-small': isSmall }]"
                     v-bind="inputBindings"
                     type="text"
                     :placeholder="placeholder">
