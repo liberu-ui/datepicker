@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/datepicker",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "Vue Datepicker component based on Flatpickr",
   "main": "index.js",
   "scripts": {
