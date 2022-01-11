@@ -5,6 +5,8 @@ import i18n from '../locale/locale';
 export default {
     name: 'CoreDatepicker',
 
+    inheritAttrs: false,
+
     props: {
         altInput: {
             type: Boolean,
@@ -29,7 +31,7 @@ export default {
         locale: {
             type: String,
             default: 'en',
-            validator: (val) => Object.keys(i18n).includes(val),
+            validator: val => Object.keys(i18n).includes(val),
         },
         max: {
             type: String,
@@ -55,7 +57,7 @@ export default {
             type: Boolean,
             default: false,
         },
-        value: {
+        modelValue: {
             type: null,
             required: true,
             default: null,
@@ -70,13 +72,15 @@ export default {
         },
     },
 
+    emits: ['value-updated', 'update:modelValue'],
+
     data: () => ({
         picker: null,
     }),
 
     computed: {
         clearButton() {
-            return this.value
+            return this.modelValue
                 && !this.disableClear
                 && !this.disabled
                 && !this.readonly;
@@ -90,7 +94,7 @@ export default {
                 altInput: this.altInput,
                 clickOpens: !this.readonly,
                 dateFormat: this.format.replace('s', 'S'),
-                defaultDate: this.value,
+                defaultDate: this.modelValue,
                 enableTime: this.time || this.timeOnly,
                 maxDate: this.max,
                 minDate: this.min,
@@ -98,7 +102,7 @@ export default {
                 time_24hr: !this.time12hr,
                 weekNumbers: this.weekNumbers,
                 onChange(selectedDates, dateStr) {
-                    self.$emit('input', dateStr);
+                    self.$emit('update:modelValue', dateStr);
                 },
                 onValueUpdate(selectedDates, dateStr) {
                     self.$emit('value-updated', dateStr);
@@ -117,11 +121,11 @@ export default {
         min: 'reset',
         readonly: 'reset',
         disabled: 'reset',
-        value(value) {
+        modelValue(value) {
             if (!this.picker.config) {
                 return;
             }
-            
+
             if (value) {
                 this.picker.setDate(value);
             } else {
@@ -138,7 +142,7 @@ export default {
         this.init();
     },
 
-    beforeDestroy() {
+    beforeUnmount() {
         this.destroy();
     },
 
@@ -151,7 +155,7 @@ export default {
         },
         init() {
             this.picker = new Flatpickr(
-                this.$el.querySelector('input'), this.config,
+                this.$parent.$el.querySelector('input'), this.config,
             );
         },
         reset() {
@@ -161,14 +165,14 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             clearButton: this.clearButton,
             clearEvents: {
                 click: this.clear,
             },
             inputBindings: {
-                disabled: this.disabled,
-                readonly: this.readonly,
+                disabled: this.disabled || null,
+                readonly: this.readonly || null,
             },
             readonly: this.readonly || this.disabled,
             timeOnly: this.timeOnly,
