@@ -1,5 +1,5 @@
 {
-  "name": "@cgdsoftware/datepicker",
+  "name": "@liberu-ui/datepicker",
   "version": "2.0.15",
   "description": "Vue Datepicker component based on Flatpickr",
   "main": "index.js",
