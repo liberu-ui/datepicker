@@ -1,10 +1,10 @@
 # Datepicker
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/datepicker.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/datepicker.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/datepicker.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/datepicker.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/datepicker.svg) 
+![npm license](https://img.shields.io/npm/l/@liberu-ui/datepicker.svg) 
+![npm download](https://img.shields.io/npm/dm/@liberu-ui/datepicker.svg) 
+![GitHub top language](https://img.shields.io/github/languages/top/liberu-ui/datepicker.svg) 
+![GitHub issues](https://img.shields.io/github/issues/liberu-ui/datepicker.svg) 
+![npm version](https://img.shields.io/npm/v/@liberu-ui/datepicker.svg) 
 
 Vue Datepicker component based on [Flatpickr](https://flatpickr.js.org/)
 
