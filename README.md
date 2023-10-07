@@ -6,7 +6,7 @@
 ![GitHub issues](https://img.shields.io/github/issues/liberu-ui/datepicker.svg) 
 ![npm version](https://img.shields.io/npm/v/@liberu-ui/datepicker.svg) 
 
-Vue Datepicker component based on [Flatpickr](https://flatpickr.js.org/)
+Vue Datepicker component based on [Flatpickr](https://flatpickr.ts.org/)
 
 ## Usage
 All components can be used outside of the Liberu ecosystem.
