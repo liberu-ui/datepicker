@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/datepicker",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "Vue Datepicker component based on Flatpickr",
   "main": "index.ts",
   "scripts": {
